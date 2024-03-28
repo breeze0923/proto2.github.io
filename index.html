@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="index.css">
+<div id="main-body" class="main-container">
+    <div id="left-content" class="left-container">
+        <div class="content-container">
+            <h2>Welcome!</h2>
+            <p class="p1">ms project</p>
+            <p>*copy rights by srinivas</p>
+        </div>
+    </div>
+    <div id="top-header" class="middle-container">
+        <ul>
+            <li><a href="/home_page.html">Home</a></li>
+            <li><a href="#" id="overlayTrigger">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="/loogin.html">Login</a></li>
+        </ul>
+    </div>
+    <div class="overlay-container" id="overlayContainer">
+    <div class="overlay-content">
+        <a href="#" id="closeOverlay">Close Overlay</a>
+        <a href="/about.html">About</a>
+        <a href="/project.html">Project</a>
+    </div>
+</div>
+
+    <div class="right-container">
+        <img src="https://w0.peakpx.com/wallpaper/295/409/HD-wallpaper-leaves-black-dark-love-nature-screens.jpg" alt="rightimg">
+    </div>
+</div><script>
+document.getElementById("overlayTrigger").addEventListener("click", function() {
+    document.getElementById("overlayContainer").style.display = "block";
+});
+
+document.getElementById("closeOverlay").addEventListener("click", function() {
+    document.getElementById("overlayContainer").style.display = "none";
+});
+</script>
