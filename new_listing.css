@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Light gray background */
+    color: #333; /* Dark text color */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0a0a0a83; /* Green header background */
+    padding: 20px 0;
+    text-align: center;
+    color: white; /* White text color */
+    font-family: 'Courier New', Courier, monospace;
+    align-items: center;
+    font-size: 1em;
+}
+
+.container {
+    background-color: #000000;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    font-size: larger;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ffe082; /* Light yellow on hover */
+}
+
+.content {
+    background-color: #000000;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+form {
+    color: #fdfffd;
+    font-family: 'Courier New', Courier, monospace;
+    max-width: 500px;
+    margin: auto;
+    font-size: 1.3em;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 12px; /* Increased padding for bigger text */
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: #f8f8f8; /* Light gray background for inputs */
+    font-size: 16px; /* Increased font size */
+    color: black; /* Black text color */
+}
+
+textarea {
+    resize: vertical; /* Allow vertical resizing of textarea */
+}
+input[type="checkbox"] {
+    background-color: white !important; /* Set background color of checkboxes to white */
+    margin-right: 5px; /* Add some spacing between checkboxes and labels */
+}
+
+
+input[type="submit"] {
+    background-color: #4caf50; /* Green submit button */
+    color: rgb(14, 0, 0);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+footer {
+    background-color: #000000; /* Dark footer background */
+    color: #fffdfd; /* White text color */
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 20px;
+}

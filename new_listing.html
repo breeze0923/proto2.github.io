@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Teacher Listing</title>
+    <link rel="stylesheet" href="new_listing.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>New Listing</h1>
+            <nav>
+                <ul>
+                    <li><a href="/homepage.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="container">
+            <h2>Booom!boom!shoom</h2>
+            <form>
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch" required>
+                      
+                <label for="project">Project:</label>
+                <input type="text" id="project" name="project" required>
+                
+                <label>Status:</label>
+                <div>
+                    <input type="checkbox" id="status_on" name="status" value="on">
+                    <label for="status_on">On</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="status_off" name="status" value="off">
+                    <label for="status_off">Off</label>
+                </div>
+                
+                
+                <label for="info">Info:</label>
+                <textarea id="info" name="info" rows="4" cols="50" required></textarea>
+                
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; TEAM MS SASTRA.BOOOOM!</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('form').addEventListener('submit',  async function(event) {
+            console.log("he")
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            var object = {};
+            formData.forEach((value, key) => object[key] = value);
+            
+            try {
+                const response = await fetch('/teacherform', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        hell:"nopebruh"
+                    })
+                });
+
+                if (response.ok) {
+                    alert('Teacher listing submitted successfully!');
+                    // Optionally, redirect to another page after successful submission
+                    window.location.href = '/homepage.html';
+                } else {
+                    console.error('Failed to submit teacher listing');
+                    alert('Failed to submit teacher listing. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch Teacher Listings by Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        #outputContainer {
+            margin-top: 20px;
+        }
+
+        #outputContainer div {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        #outputContainer p {
+            margin: 5px 0;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Fetch Teacher Listings by Status</h2>
+        <form id="fetchByStatusForm">
+            <div>
+                <label for="status">Status:</label>
+                <input type="text" id="status" name="status" required>
+            </div>
+            <div>
+                <input type="submit" value="Fetch Listings">
+            </div>
+        </form>
+        <div id="outputContainer"></div>
+        
+        <!-- Button to redirect to another page -->
+        <button onclick="redirectToNewListingPage()">New Listing</button>
+    </div>
+
+    <script>
+        document.getElementById('fetchByStatusForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const status = document.getElementById('status').value;
+
+            try {
+                const response = await fetch('/teachlisting', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ status })
+                });
+
+                const data = await response.json();
+
+                // Clear previous output
+                document.getElementById('outputContainer').innerHTML = '';
+
+                // Display fetched data
+                if (data && data.teacherListings && data.teacherListings.length > 0) {
+                    const outputHTML = data.teacherListings.map(listing => `
+                        <div>
+                            <p>Branch: ${listing.branch}</p>
+                            <p>Project: ${listing.project}</p>
+                            <p>Status: ${listing.status}</p>
+                            <p>Info: ${listing.info}</p>
+                        </div>
+                    `).join('');
+                    document.getElementById('outputContainer').innerHTML = outputHTML;
+                } else {
+                    document.getElementById('outputContainer').innerText = 'No teacher listings found for the given status.';
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+
+        // Function to redirect to another page
+     function redirectToNewListingPage() {
+    // Change the URL to the desired page
+    window.location.href = 'file:///C:/Users/srinivas/Documents/practise/site/working/node/gooo/newlisting.html'; // Adjust the path accordingly
+}
+
+    </script>
+</body>
+</html>

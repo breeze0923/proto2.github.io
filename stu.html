@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="stu.css">
+<title>Table Display</title>
+
+</head>
+<body>
+    <div class="main-container">
+  
+ <h2>Fetch Teacher Listings</h2>
+    <form id="fetchForm">
+        <div>
+            <label for="branch">Branch:</label>
+            <input type="text" id="branch" name="branch" required>
+        </div>
+        <div>
+            <label for="project">Project:</label>
+            <input type="text" id="project" name="project" required>
+        </div>
+        <div>
+            <input type="submit" value="Fetch Listings">
+        </div>
+    </form>
+<!-- Container for the table -->
+<div id="table-container">
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>Branch</th>
+        <th>Project</th>
+        <th>Status</th>
+        <th>Info</th>
+      </tr>
+    </thead>
+    <tbody id="table-body">
+      <!-- Data will be dynamically populated here -->
+    </tbody>
+  </table>
+</div>
+</div>
+<script>
+// JavaScript to populate the table with fetched data
+document.getElementById('fetchForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const branch = document.getElementById('branch').value;
+    const project = document.getElementById('project').value;
+
+    try {
+        const response = await fetch(`/sadata?branch=${branch}&project=${project}`);
+        const data = await response.json();
+
+        // Clear previous table rows
+        document.getElementById('table-body').innerHTML = '';
+
+        // Display fetched data in table format
+        if (data && data.teacherListings && data.teacherListings.length > 0) {
+            data.teacherListings.forEach(listing => {
+                const row = document.createElement('tr');
+
+                const branchCell = document.createElement('td');
+                branchCell.textContent = listing.branch;
+                row.appendChild(branchCell);
+
+                const projectCell = document.createElement('td');
+                projectCell.textContent = listing.project;
+                row.appendChild(projectCell);
+
+                const statusCell = document.createElement('td');
+                statusCell.textContent = listing.status;
+                row.appendChild(statusCell);
+
+                const infoCell = document.createElement('td');
+                infoCell.textContent = listing.info;
+                row.appendChild(infoCell);
+
+                document.getElementById('table-body').appendChild(row);
+            });
+        } else {
+            const row = document.createElement('tr');
+            const cell = document.createElement('td');
+            cell.textContent = 'No teacher listings found for the given branch and project.';
+            cell.colSpan = 4; // Spanning all columns
+            row.appendChild(cell);
+            document.getElementById('table-body').appendChild(row);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    }
+});
+</script>
+</body>
+</html>

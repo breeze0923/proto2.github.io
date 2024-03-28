@@ -1,0 +1,102 @@
+/* CSS to style the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+th {
+  background-color: #E19898;
+}
+
+/* CSS for bubble */
+.bubble::after {
+  content: '';
+  border-top-left-radius: 50% 100%;
+  border-top-right-radius: 50% 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: #0e0ef8;
+  height: 85%;
+}
+
+/* CSS for main container */
+.main-container {
+  background-color: transparent; /* Adjust as needed */
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.input-container {
+  margin-bottom: 20px;
+}
+
+#fetchForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#fetchForm div {
+  margin-bottom: 10px;
+  background-color: rgba(0, 255, 255, 0);
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+button,
+input[type="submit"] {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 200px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background-color: #F4BF96;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* CSS for output container */
+#outputDiv {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  margin-top: 20px; /* Add some space between the input form and output */
+}
+
+/* CSS for individual listing items */
+#outputDiv div {
+  margin-bottom: 15px; /* Add some space between each listing item */
+  border-bottom: 1px solid #ddd; /* Add a bottom border to separate listing items */
+  padding-bottom: 15px; /* Add padding at the bottom of each listing item */
+}
+
+/* CSS for listing item text */
+#outputDiv p {
+  margin: 0; /* Remove default margins for paragraphs */
+}
