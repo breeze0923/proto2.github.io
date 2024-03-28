@@ -1,0 +1,62 @@
+/* CSS in bout.css */
+
+/* Resetting default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Applying styles to the main container */
+.main-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: repeat(3, 650px); /* Create 3 columns with equal width */
+    grid-column-gap: 5px; /* Spacing between grid items */
+    grid-row-gap: 30px;
+    /* Add any additional styling as needed */
+}
+
+/* Applying styles to the grid items */
+.grid-item {
+    position: relative; /* Position relative for absolute positioning of containers */
+    background-color: rgba(243, 0, 0, 0); /* Transparent background color */
+    padding: 20px; /* Example padding */
+    border: 1px solid #cccccc; /* Example border */
+    width: 600px; /* Set the width of the grid item */
+    height: 700px; /* Set the height of the grid item */
+    margin: 0 auto; /* Center the grid item within the grid column */
+}
+
+/* Applying styles to the image containers */
+.image-container {
+    position: absolute; /* Position absolute */
+    top: 20px; /* 20px from the top of the grid item */
+    left: 20px; /* 20px from the left of the grid item */
+    right: 20px;
+    width: 300px; 
+    height:500px;/* 20px from the right of the grid item */
+    bottom: calc(50% + 30px); /* Position at 50% from the top and add additional space */
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Applying styles to the images */
+.image-container img {
+    display: block; /* Ensure the image is displayed as a block element */
+    width: 100%; /* Ensure the image fills the width of the container */
+    height: 100%; /* Ensure the image fills the height of the container */
+    object-fit: cover; /* Cover the entire container with the image */
+}
+
+/* Applying styles to the bottom containers */
+.container.bottom-container {
+    position: absolute; /* Position absolute */
+    bottom: 0px; /* 20px from the bottom of the grid item */
+    left: 20px; /* 20px from the left of the grid item */
+    right: 20px; /* 20px from the right of the grid item */
+    height: 150px; /* Height of the grid item minus padding */
+    background-color: rgba(220, 220, 63, 0); /* Transparent background color */
+    /* Example padding */
+    color: rgb(255, 255, 255); /* Text color */
+    font-size: 20px; /* Font size */
+    text-align: center; /* Text alignment */
+}
