@@ -1,0 +1,42 @@
+[
+    {
+      "department": "Computer Science",
+      "projectName": "Web-based Student Management System",
+      "projectDetails": "Developing a web application for managing student information, courses, and grades.",
+      "status": "Ongoing",
+      "facultyName": "Dr. John Smith",
+      "email": "john.smith@example.com",
+      "contact": "+1 (123) 456-7890",
+      "cabin": "CS Building, Room 201"
+    },
+    {
+      "department": "Electrical/Electronics",
+      "projectName": "Smart Home Automation System",
+      "projectDetails": "Designing and implementing a smart home system controlled via a mobile app.",
+      "status": "Completed",
+      "facultyName": "Dr. Emily Johnson",
+      "email": "emily.johnson@example.com",
+      "contact": "+1 (234) 567-8901",
+      "cabin": "EE Building, Room 305"
+    },
+    {
+      "department": "Mechanical",
+      "projectName": "Solar Powered Water Purification System",
+      "projectDetails": "Creating a water purification system powered by solar energy for remote areas.",
+      "status": "In Progress",
+      "facultyName": "Prof. David Williams",
+      "email": "david.williams@example.com",
+      "contact": "+1 (345) 678-9012",
+      "cabin": "ME Building, Room 401"
+    },
+    {
+      "department": "Aerospace",
+      "projectName": "Drone Delivery System",
+      "projectDetails": "Developing a drone delivery system for transporting medical supplies to remote regions.",
+      "status": "On Hold",
+      "facultyName": "Dr. Sarah Brown",
+      "email": "sarah.brown@example.com",
+      "contact": "+1 (456) 789-0123",
+      "cabin": "AE Building, Room 103"
+    } 
+]
